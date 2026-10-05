@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f1ea">
+  <title>Desk Hub</title>
+  <link rel="stylesheet" href="style.css?v=34">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Desk Hub home"><span class="brand-mark">d.</span><span>desk hub</span></a>
+      <div class="header-actions"><div class="top-date" id="today-date">Loading date…</div><button class="settings-button" id="open-settings" type="button" aria-label="Open settings" title="Settings">⚙</button></div>
+    </header>
+
+    <main>
+      <section class="page active" id="page-home" aria-labelledby="home-title">
+        <div class="home-grid">
+          <article class="hero-card">
+            <div class="eyebrow">YOUR DESK, AT A GLANCE</div>
+            <h1 id="home-title">Make room<br>for what matters.</h1>
+            <div class="clock clock-time-readout" id="clock" aria-label="Current time"></div>
+            <div class="clock-meta"><span id="clock-period">--</span><span class="clock-dot"></span><span id="clock-date">Today</span><button class="clock-open" type="button" data-open-page="clock">Open full clock ↗</button></div>
+            <div class="hero-rule"></div>
+            <div class="day-row"><div><div class="eyebrow">SCHOOL DAY</div><div class="day-name" id="day-name">Checking your calendar</div></div><div class="day-badge" id="day-badge">…</div></div>
+            <div class="next-day" id="next-day"></div>
+          </article>
+
+          <div class="side-stack">
+            <article class="weather-card">
+              <div class="card-heading"><div><div class="eyebrow">OUTSIDE</div><h2>Weather</h2></div><span class="weather-icon" id="weather-icon">◌</span></div>
+              <div class="weather-temp" id="weather-temp">--°</div>
+              <div class="weather-description" id="weather-description">Getting the latest</div>
+              <div class="weather-foot" id="weather-location">Granger, IN · today</div>
+            </article>
+            <article class="next-card">
+              <div class="eyebrow">A GOOD PLACE TO START</div>
+              <p>One thing at a time is still progress.</p>
+              <button class="text-link" type="button" data-open-page="focus">Start a focus session <span aria-hidden="true">↗</span></button>
+            </article>
+          </div>
+        </div>
+        <article class="schedule-card home-schedule-card">
+          <div class="section-heading"><div><div class="eyebrow">THE DAY, MADE CLEAR</div><h2 id="home-schedule-title">Today’s classes</h2></div><button class="text-link" type="button" data-open-page="schedule">Full schedule <span aria-hidden="true">↗</span></button></div>
+          <div id="home-schedule" class="class-list"><div class="empty-state">Loading your schedule…</div></div>
+        </article>
+      </section>
+
+
+      <section class="page clock-page" id="page-clock" aria-label="Full screen clock">
+          <div class="clock-stage">
+            <div class="clock-screen">
+            <div class="display-topline"><span class="alarm-led"><i></i><span id="clock-alarm-indicator">ALARM OFF</span></span></div>
+            <div class="display-main-row"><span class="display-period" id="full-clock-period">PM</span><div class="clock-time-readout big-readout" id="full-clock" aria-label="Current time"></div></div>
+            <div class="clock-alarm-summary"><span>NEXT ALARM</span><strong id="clock-next-alarm">No alarm set</strong></div>
+            <div class="clock-actions"><button class="clock-exit" type="button" data-open-page="alarms">Manage alarm</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-schedule" aria-labelledby="schedule-heading">
+        <div class="page-intro"><div class="eyebrow">NO MORE GUESSING</div><h1 id="schedule-heading">Your school day.</h1><p>Know the color. Know what’s next.</p></div>
+        <article class="schedule-card">
+          <div class="section-heading"><div><div class="eyebrow" id="schedule-date">TODAY</div><h2 id="schedule-title">Loading…</h2></div><div class="day-badge large" id="schedule-badge">…</div></div>
+          <p class="schedule-note" id="schedule-note"></p>
+          <div id="schedule-list" class="class-list"><div class="empty-state">Loading your schedule…</div></div>
+          <div class="robotics-note" id="robotics-note" hidden><span class="robotics-icon">✳</span><span><strong>Robotics today</strong><small>Gold day · Wednesday or Thursday</small></span></div>
+        </article>
+      </section>
+
+      <section class="page" id="page-focus" aria-labelledby="focus-heading">
+        <div class="page-intro"><div class="eyebrow">A LITTLE LESS SCROLLING</div><h1 id="focus-heading">Find your focus.</h1><p>Pick one task. Give it your attention.</p></div>
+        <article class="focus-card">
+          <div class="focus-tabs" role="group" aria-label="Timer length"><button class="focus-tab active" data-minutes="25" type="button">Focus · 25</button><button class="focus-tab" data-minutes="5" type="button">Short break · 5</button><button class="focus-tab" data-minutes="15" type="button">Long break · 15</button></div>
+          <div class="timer-wrap"><div class="timer-ring" id="timer-ring"><div class="timer-face"><div class="timer-label" id="timer-label">FOCUS TIME</div><div class="timer-value" id="timer-value">25:00</div><div class="timer-hint" id="timer-hint">Ready when you are</div></div></div></div>
+<div class="focus-prompt">Pick a timer, then settle into one thing.</div>
+          <div class="timer-actions"><button id="timer-start" class="primary-button" type="button">Start focus</button><button id="timer-reset" class="secondary-button" type="button">Reset</button></div>
+          <p class="focus-footnote">Choose by tapping—there is nothing to type.</p>
+        </article>
+      </section>
+
+      <section class="page" id="page-settings" aria-labelledby="settings-heading">
+        <div class="page-intro"><div class="eyebrow">MAKE IT YOURS</div><h1 id="settings-heading">Your settings.</h1><p>Choose the look and feel of your desk display.</p></div>
+        <article class="settings-card">
+          <div class="settings-section-title"><div><div class="eyebrow">COLOR THEMES</div><h2>Pick a starting point</h2></div></div>
+          <div class="theme-grid" role="group" aria-label="Color theme">
+            <button class="theme-option" type="button" data-theme-choice="meadow"><span class="theme-swatch meadow-swatch"></span><span><strong>Meadow</strong><small>Soft green</small></span><span class="theme-check">✓</span></button>
+            <button class="theme-option" type="button" data-theme-choice="warm"><span class="theme-swatch warm-swatch"></span><span><strong>Warm paper</strong><small>Sand and olive</small></span><span class="theme-check">✓</span></button>
+            <button class="theme-option" type="button" data-theme-choice="ocean"><span class="theme-swatch ocean-swatch"></span><span><strong>Quiet blue</strong><small>Cool and clear</small></span><span class="theme-check">✓</span></button>
+            <button class="theme-option" type="button" data-theme-choice="midnight"><span class="theme-swatch midnight-swatch"></span><span><strong>Midnight</strong><small>Dim evening display</small></span><span class="theme-check">✓</span></button>
+          </div>
+          <div class="custom-accent">
+            <div class="accent-picker-row"><div><strong>Accent color</strong><small>Choose a color by tapping a swatch.</small></div><div class="accent-choices" role="group" aria-label="Accent color"><button type="button" class="accent-swatch red-accent" data-accent-color="#ef233c" aria-label="Red accent"></button><button type="button" class="accent-swatch amber-accent" data-accent-color="#d69c36" aria-label="Amber accent"></button><button type="button" class="accent-swatch blue-accent" data-accent-color="#438fba" aria-label="Blue accent"></button><button type="button" class="accent-swatch green-accent" data-accent-color="#4e8a5d" aria-label="Green accent"></button></div></div>
+            <div class="custom-color-row"><div><strong>Custom color</strong><small>Pick any accent color by tapping.</small></div><label class="custom-color-choice" id="custom-color-choice"><span class="custom-color-preview" id="custom-color-preview"></span><span>Choose color</span><input id="custom-accent-color" type="color" value="#345b45" aria-label="Choose a custom accent color"></label></div>
+          </div>
+          <div class="appearance-save-row"><button class="primary-button" id="appearance-save" type="button">Save appearance</button><span class="save-status" id="appearance-save-status" role="status"></span></div>
+          <details class="physical-controls-panel">
+            <summary class="settings-section-title controls-heading"><span><span class="eyebrow">PHYSICAL CONTROLS</span><strong>Knob setup</strong></span><span class="hardware-badge" id="hardware-status">Checking Pico…</span></summary>
+            <p class="settings-copy">Turn the knob to move between pages. Set its two end stops once so the full turn maps from Home to Settings.</p>
+            <div class="knob-calibration" aria-label="Calibrate knob page range">
+              <button class="secondary-button" id="knob-set-left" type="button">Set left end · Home</button>
+              <button class="secondary-button" id="knob-set-right" type="button">Set right end · Settings</button>
+            </div>
+            <p class="knob-calibration-status" id="knob-calibration-status" role="status"></p>
+          </details>
+          <button class="secondary-button settings-done" type="button" data-open-page="home">Done</button>
+        </article>
+      </section>
+
+
+      <section class="page" id="page-alarms" aria-labelledby="alarms-heading">
+        <div class="page-intro"><div class="eyebrow">WAKE UP ON YOUR TERMS</div><h1 id="alarms-heading">Your alarms.</h1><p>Set a gentle reminder for the morning.</p></div>
+        <article class="settings-card alarm-card">
+          <div class="settings-section-title"><div><div class="eyebrow">NEW ALARM</div><h2>What time should we wake you?</h2></div></div>
+          <form id="alarm-form" class="alarm-form">
+            <div class="alarm-form-top"><div class="alarm-time-field"><span class="field-label">Time</span><div class="alarm-time-controls"><div class="time-stepper"><button type="button" data-time-unit="hour" data-step="-1" aria-label="Earlier hour">−</button><output id="alarm-hour">7</output><button type="button" data-time-unit="hour" data-step="1" aria-label="Later hour">+</button></div><span class="time-colon">:</span><div class="time-stepper"><button type="button" data-time-unit="minute" data-step="-1" aria-label="Earlier minute">−</button><output id="alarm-minute">00</output><button type="button" data-time-unit="minute" data-step="1" aria-label="Later minute">+</button></div><div class="ampm-toggle" role="group" aria-label="AM or PM"><button type="button" data-meridiem="AM" class="selected">AM</button><button type="button" data-meridiem="PM">PM</button></div></div></div><div class="alarm-label-choices"><span class="field-label">Alarm for</span><div class="preset-choices" role="group" aria-label="Alarm label"><button type="button" data-alarm-label="Wake up" class="selected">Wake up</button><button type="button" data-alarm-label="School" >School</button><button type="button" data-alarm-label="Weekend">Weekend</button></div></div></div>
+            <fieldset class="repeat-days"><legend>Repeat</legend><div class="weekday-choices">
+              <label><input type="checkbox" value="0"><span>S</span></label><label><input type="checkbox" value="1"><span>M</span></label><label><input type="checkbox" value="2"><span>T</span></label><label><input type="checkbox" value="3"><span>W</span></label><label><input type="checkbox" value="4"><span>T</span></label><label><input type="checkbox" value="5"><span>F</span></label><label><input type="checkbox" value="6"><span>S</span></label>
+            </div></fieldset>
+            <button class="primary-button save-alarm-button" type="submit">Save alarm</button><span class="save-status" id="alarm-save-status" role="status"></span>
+          </form>
+          <details class="alarm-list-panel">
+            <summary class="alarm-list-heading"><span class="eyebrow">UP NEXT</span></summary>
+            <div id="alarm-list" class="alarm-list"><div class="empty-state">No alarms set.</div></div>
+          </details>
+          <details class="alarm-extra-panel">
+            <summary>Alarm sound and reliability</summary>
+            <div class="alarm-sound-settings">
+              <div><div class="eyebrow">WAKE-UP SOUND</div><p>Choose a tone, then tap to hear it.</p></div>
+              <div class="alarm-tone-choices" role="group" aria-label="Alarm sound">
+                <button type="button" data-alarm-tone="soft" aria-pressed="false">Soft</button>
+                <button type="button" data-alarm-tone="classic" aria-pressed="false">Classic</button>
+                <button type="button" data-alarm-tone="bold" aria-pressed="true">Bold</button>
+              </div>
+              <div class="alarm-sound-actions"><button id="alarm-sound-toggle" class="secondary-button" type="button">Enable alarm sound</button><button id="alarm-sound-test" class="text-link" type="button">Test sound</button><span class="save-status" id="alarm-sound-status" role="status"></span></div>
+            </div>
+            <p class="alarm-reliability">Tap Enable alarm sound after opening Desk Hub, then keep it open in the foreground. Fire tablet sleep or browser background limits can pause alarms; keep the tablet plugged in and set its display sleep accordingly.</p>
+          </details>
+        </article>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-page="home" type="button"><span class="nav-icon">⌂</span><span>Home</span></button>
+      <button class="nav-item" data-page="clock" type="button"><span class="nav-icon">◷</span><span>Clock</span></button>
+      <button class="nav-item" data-page="schedule" type="button"><span class="nav-icon">▦</span><span>Schedule</span></button>
+      <button class="nav-item" data-page="focus" type="button"><span class="nav-icon">◎</span><span>Focus</span></button>
+      <button class="nav-item" data-page="alarms" type="button"><span class="nav-icon">◴</span><span>Alarms</span></button>
+      <span class="nav-caption">a calmer corner of your day</span>
+    </nav>
+  </div>
+  <div class="alarm-overlay" id="alarm-overlay" hidden role="alertdialog" aria-modal="true" aria-labelledby="alarm-ring-title">
+    <div class="alarm-dialog"><div class="eyebrow">DESK HUB ALARM</div><h2 id="alarm-ring-title">Time to wake up</h2><div class="ringing-time" id="ringing-time">--:--</div><p id="ringing-label">Your alarm is ringing.</p><div class="ringing-actions"><button id="alarm-snooze" class="secondary-button" type="button">Snooze 9 min</button><button id="alarm-dismiss" class="primary-button" type="button">Dismiss</button></div></div>
+  </div>
+  <script src="schedule.js?v=31"></script>
+  <script src="script.js?v=31"></script>
+  <script src="weather.js?v=31"></script>
+  <script src="focus.js?v=31"></script>
+  <script src="settings.js?v=31"></script>
+  <script src="alarms.js?v=31"></script>
+  <script src="navigation.js?v=32"></script>
+</body>
+</html>
